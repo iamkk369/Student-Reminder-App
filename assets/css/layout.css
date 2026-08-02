@@ -146,69 +146,6 @@
   padding: var(--space-16) 0;
 }
 
-.section-header {
-  margin-bottom: var(--space-6);
-}
-
-.section-title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-2);
-}
-
-.section-subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
-}
-
-/* ========================================
-   Card Layout
-   ======================================== */
-.card {
-  background-color: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color-light);
-  overflow: hidden;
-  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-.card-body {
-  padding: var(--space-6);
-}
-
-.card-header {
-  padding: var(--space-4) var(--space-6);
-  border-bottom: 1px solid var(--border-color-light);
-  background-color: var(--bg-secondary);
-}
-
-.card-footer {
-  padding: var(--space-4) var(--space-6);
-  border-top: 1px solid var(--border-color-light);
-  background-color: var(--bg-secondary);
-}
-
-.card-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-2);
-}
-
-.card-text {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.card-text:last-child {
-  margin-bottom: 0;
-}
-
 /* ========================================
    Sidebar Layout
    ======================================== */

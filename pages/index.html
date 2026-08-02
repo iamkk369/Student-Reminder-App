@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Reminder App - Manage Your Academic Life</title>
+  <meta name="description" content="Organize assignments, exams, lectures, and reminders in one place. Never miss a deadline again. Free for students.">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Student Reminder App - Manage Your Academic Life">
+  <meta property="og:description" content="Organize assignments, exams, lectures, and reminders in one place. Never miss a deadline again. Free for students.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <!-- Logo (Left) -->
+        <a href="index.html" class="header-logo" aria-label="Student Reminder App - Home">
+          <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+          <span>Student Reminder</span>
+        </a>
+
+        <!-- Navigation Links (Center - Desktop) -->
+        <nav class="header-nav d-none d-lg-flex" aria-label="Main navigation">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#demo" class="nav-link">Demo</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </nav>
+
+        <!-- Action Buttons (Right) -->
+        <div class="d-none d-lg-flex align-items-center gap-4">
+          <a href="/auth/login.html" class="btn btn-outline">Login</a>
+          <a href="/auth/register.html" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="d-lg-none mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="mobile-menu-icon" width="24" height="24" viewBox="0 0 24 24">
+            <use href="../assets/icons/icons.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <a href="index.html" class="header-logo">
+            <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+            <span>Student Reminder</span>
+          </a>
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="../assets/icons/icons.svg#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-menu-nav">
+          <a href="#features" class="mobile-nav-link">Features</a>
+          <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+          <a href="#demo" class="mobile-nav-link">Demo</a>
+          <a href="#faq" class="mobile-nav-link">FAQ</a>
+          <a href="/auth/login.html" class="mobile-nav-link mobile-nav-link--secondary">Login</a>
+          <a href="/auth/register.html" class="mobile-nav-link mobile-nav-link--primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ==================== HERO SECTION ==================== -->
+      <section class="hero-section section-xl">
+        <div class="container">
+          <div class="row align-items-center">
+
+            <!-- Left Column - Text Content -->
+            <div class="col-12 col-lg-6 mb-8 mb-lg-0">
+              <!-- Badge -->
+              <span class="badge badge-primary badge-lg mb-6">Free for Students</span>
+
+              <!-- Headline -->
+              <h1 class="hero-title mb-6">Never Miss a Deadline Again</h1>
+
+              <!-- Subheadline -->
+              <p class="hero-subtitle text-secondary mb-8">
+                Track assignments, prepare for exams, and get smart reminders —
+                all in one beautifully simple app built for students.
+              </p>
+
+              <!-- CTA Buttons -->
+              <div class="d-flex flex-column flex-sm-row gap-4 mb-8">
+                <a href="/auth/register.html" class="btn btn-primary">Get Started Free</a>
+                <a href="#demo" class="btn btn-outline">
+                  <svg class="icon icon-sm me-2" viewBox="0 0 24 24">
+                    <use href="../assets/icons/icons.svg#icon-play"></use>
+                  </svg>
+                  Watch Demo
+                </a>
+              </div>
+
+              <!-- Social Proof -->
+              <p class="text-sm text-tertiary d-flex align-items-center gap-2">
+                <svg class="icon icon-sm text-success" viewBox="0 0 24 24">
+                  <use href="../assets/icons/icons.svg#icon-check"></use>
+                </svg>
+                Trusted by 10,000+ students worldwide
+              </p>
+            </div>
+
+            <!-- Right Column - Quick Add Reminder (Unique visual, NOT the dashboard) -->
+            <div class="col-12 col-lg-6">
+              <div class="hero-mockup">
+                <div class="hero-mockup-chrome">
+                  <div class="hero-mockup-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="hero-mockup-url">app.studentreminder.com/new</div>
+                </div>
+                <div class="quick-add-window">
+                  <div class="quick-add-header">
+                    <svg class="icon icon-sm text-primary" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-bell"></use>
+                    </svg>
+                    <span class="font-semibold">New Reminder</span>
+                  </div>
+
+                  <!-- Quick Add Form Mockup -->
+                  <div class="quick-add-form">
+                    <div class="quick-add-field">
+                      <label class="quick-add-label" for="mock-title">Task Title</label>
+                      <div class="quick-add-input" id="mock-title">Math Homework - Chapter 5</div>
+                    </div>
+                    <div class="quick-add-row">
+                      <div class="quick-add-field">
+                        <label class="quick-add-label" for="mock-course">Course</label>
+                        <div class="quick-add-input" id="mock-course">Algebra II</div>
+                      </div>
+                      <div class="quick-add-field">
+                        <label class="quick-add-label" for="mock-due">Due Date</label>
+                        <div class="quick-add-input" id="mock-due">Fri, Aug 7</div>
+                      </div>
+                    </div>
+                    <div class="quick-add-field">
+                      <label class="quick-add-label" for="mock-priority">Priority</label>
+                      <div class="quick-add-priority">
+                        <span class="quick-add-pill quick-add-pill--high">High</span>
+                        <span class="quick-add-pill">Normal</span>
+                        <span class="quick-add-pill">Low</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Reminder Preview Card -->
+                  <div class="quick-add-preview">
+                    <div class="quick-add-preview-icon">
+                      <svg class="icon icon-sm text-success" viewBox="0 0 24 24">
+                        <use href="../assets/icons/icons.svg#icon-bell"></use>
+                      </svg>
+                    </div>
+                    <div class="quick-add-preview-text">
+                      <span class="text-sm font-semibold">We'll remind you</span>
+                      <span class="text-xs text-tertiary">2 days before · 9:00 AM</span>
+                    </div>
+                    <span class="badge badge-success badge-sm">Saved</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== STATISTICS (Trust Early) ==================== -->
+      <section class="section section-stats" aria-label="Key statistics">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-12 col-md-3 mb-6">
+              <div class="stat-number">10,000+</div>
+              <div class="stat-label">Active Students</div>
+            </div>
+            <div class="col-12 col-md-3 mb-6">
+              <div class="stat-number">50,000+</div>
+              <div class="stat-label">Tasks Completed</div>
+            </div>
+            <div class="col-12 col-md-3 mb-6">
+              <div class="stat-number">95%</div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="col-12 col-md-3 mb-6">
+              <div class="stat-number">4.9/5</div>
+              <div class="stat-label">Average Rating</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURES OVERVIEW ==================== -->
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">FEATURES</span>
+            <h2 class="section-title">Everything you need to stay organized</h2>
+            <p class="section-subtitle">Powerful tools designed specifically for students</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-clipboard"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Assignment Tracking</h3>
+                  <p class="card-text">Never miss a deadline. Track all your assignments with due dates, priorities, and subjects.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-calendar"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Exam Countdown</h3>
+                  <p class="card-text">Prepare effectively with exam schedules, automatic countdown timers, and study notes.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-bell"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Smart Reminders</h3>
+                  <p class="card-text">Get notified before deadlines with customizable email and push notifications.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-microscope"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Lab & Practicals</h3>
+                  <p class="card-text">Never forget a lab session with dedicated practical schedules and preparation checklists.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-trophy"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Progress Streaks</h3>
+                  <p class="card-text">Stay motivated with daily streaks and progress tracking that celebrates consistency.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-shield"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Privacy First</h3>
+                  <p class="card-text">Your academic data stays yours. We never sell or monetize your personal information.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== HOW IT WORKS ==================== -->
+      <section id="how-it-works" class="section section-bg-light">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">QUICK START</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Get started in 3 simple steps</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-4 mb-8">
+              <div class="step-circle mx-auto mb-4">1</div>
+              <h3 class="step-title mb-2">Create Account</h3>
+              <p class="text-secondary text-center">Sign up with your email and set up your profile in seconds.</p>
+            </div>
+
+            <div class="col-12 col-md-4 mb-8">
+              <div class="step-circle step-circle--secondary mx-auto mb-4">2</div>
+              <h3 class="step-title mb-2">Add Your Tasks</h3>
+              <p class="text-secondary text-center">Create assignments, exams, and reminders with just a few clicks.</p>
+            </div>
+
+            <div class="col-12 col-md-4 mb-8">
+              <div class="step-circle step-circle--success mx-auto mb-4">3</div>
+              <h3 class="step-title mb-2">Stay Organized</h3>
+              <p class="text-secondary text-center">Get reminders, track progress, and achieve your academic goals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== REMINDER CATEGORIES ==================== -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">CATEGORIES</span>
+            <h2 class="section-title">Organize Everything</h2>
+            <p class="section-subtitle">From assignments to practicals, we've got you covered</p>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-clipboard"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Assignments</h4>
+                  <p class="text-sm text-tertiary">Track deadlines</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-calendar"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Examinations</h4>
+                  <p class="text-sm text-tertiary">Exam schedules</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-book"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Lectures</h4>
+                  <p class="text-sm text-tertiary">Class timetable</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-microscope"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Practicals</h4>
+                  <p class="text-sm text-tertiary">Lab sessions</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-rocket"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Projects</h4>
+                  <p class="text-sm text-tertiary">Milestones</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="category-icon mb-3">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-star"></use>
+                    </svg>
+                  </div>
+                  <h4 class="card-title">Personal</h4>
+                  <p class="text-sm text-tertiary">Custom reminders</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DASHBOARD PREVIEW ==================== -->
+      <section id="demo" class="section section-bg-light">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">LIVE PREVIEW</span>
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-subtitle">Your academic command center</p>
+          </div>
+
+          <div class="dashboard-preview">
+            <div class="hero-mockup-chrome">
+              <div class="hero-mockup-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hero-mockup-url">app.studentreminder.com/dashboard</div>
+            </div>
+            <div class="dashboard-preview-window">
+              <!-- Sidebar -->
+              <div class="dashboard-preview-sidebar">
+                <div class="dashboard-preview-item active">Dashboard</div>
+                <div class="dashboard-preview-item">Assignments</div>
+                <div class="dashboard-preview-item">Examinations</div>
+                <div class="dashboard-preview-item">Calendar</div>
+                <div class="dashboard-preview-item">Reminders</div>
+                <div class="dashboard-preview-item">Profile</div>
+              </div>
+
+              <!-- Main Content -->
+              <div class="dashboard-preview-main">
+                <div class="dashboard-preview-header">Welcome back, Sarah! 👋</div>
+
+                <!-- Stats Row -->
+                <div class="dashboard-preview-stats">
+                  <div class="dashboard-preview-stat">
+                    <span class="dashboard-preview-stat-value">12</span>
+                    <span class="dashboard-preview-stat-label">Total Tasks</span>
+                  </div>
+                  <div class="dashboard-preview-stat">
+                    <span class="dashboard-preview-stat-value">5</span>
+                    <span class="dashboard-preview-stat-label">Upcoming</span>
+                  </div>
+                  <div class="dashboard-preview-stat">
+                    <span class="dashboard-preview-stat-value">87</span>
+                    <span class="dashboard-preview-stat-label">Completed</span>
+                  </div>
+                  <div class="dashboard-preview-stat">
+                    <span class="dashboard-preview-stat-value">15</span>
+                    <span class="dashboard-preview-stat-label">Day Streak</span>
+                  </div>
+                </div>
+
+                <!-- Recent Assignments -->
+                <div class="dashboard-preview-list mb-4">
+                  <div class="dashboard-preview-list-header">
+                    <span class="text-sm font-semibold">Recent Assignments</span>
+                  </div>
+                  <div class="dashboard-preview-task">
+                    <div class="d-flex align-items-center gap-2">
+                      <svg class="icon icon-sm text-error" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-clipboard"></use></svg>
+                      <span class="dashboard-preview-task-title">Math Homework</span>
+                    </div>
+                    <span class="badge badge-error badge-sm">Due Tomorrow</span>
+                  </div>
+                  <div class="dashboard-preview-task">
+                    <div class="d-flex align-items-center gap-2">
+                      <svg class="icon icon-sm text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-clipboard"></use></svg>
+                      <span class="dashboard-preview-task-title">Science Project</span>
+                    </div>
+                    <span class="badge badge-warning badge-sm">Due in 3 days</span>
+                  </div>
+                  <div class="dashboard-preview-task">
+                    <div class="d-flex align-items-center gap-2">
+                      <svg class="icon icon-sm text-success" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-clipboard"></use></svg>
+                      <span class="dashboard-preview-task-title">History Essay</span>
+                    </div>
+                    <span class="badge badge-success badge-sm">Due in 5 days</span>
+                  </div>
+                </div>
+
+                <!-- Upcoming Exams -->
+                <div class="dashboard-preview-list">
+                  <div class="dashboard-preview-list-header">
+                    <span class="text-sm font-semibold">Upcoming Exams</span>
+                  </div>
+                  <div class="dashboard-preview-task">
+                    <div class="d-flex align-items-center gap-2">
+                      <svg class="icon icon-sm text-primary" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-calendar"></use></svg>
+                      <span class="dashboard-preview-task-title">Mathematics</span>
+                    </div>
+                    <span class="badge badge-primary badge-sm">7 days left</span>
+                  </div>
+                  <div class="dashboard-preview-task">
+                    <div class="d-flex align-items-center gap-2">
+                      <svg class="icon icon-sm text-primary" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-calendar"></use></svg>
+                      <span class="dashboard-preview-task-title">Physics</span>
+                    </div>
+                    <span class="badge badge-primary badge-sm">12 days left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== WHY CHOOSE US (Unique split layout) ==================== -->
+      <section class="section">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Left - Value Props Checklist -->
+            <div class="col-12 col-lg-6 mb-8 mb-lg-0">
+              <span class="section-label d-inline-block mb-3">WHY CHOOSE US</span>
+              <h2 class="section-title mb-6">Built by a student, for students</h2>
+              <p class="section-subtitle mb-8">
+                We experienced the same late-night panic before deadlines. That's why we
+                designed an app that truly understands academic life.
+              </p>
+
+              <div class="mb-4">
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">Student-Focused Design</h3>
+                    <p class="card-text mb-0">Interface optimized for the way students actually work, not enterprise software.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">Lightning Fast</h3>
+                    <p class="card-text mb-0">Pages load in milliseconds on any device — even campus Wi-Fi.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">Free Forever</h3>
+                    <p class="card-text mb-0">No credit card, no hidden fees. Education should be free to organize.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right - Integration Compatibility -->
+            <div class="col-12 col-lg-6">
+              <div class="card card-flat">
+                <div class="card-body">
+                  <h3 class="card-title mb-4">Works everywhere you study</h3>
+                  <div class="row">
+                    <div class="col-6 mb-4">
+                      <div class="works-everywhere">
+                        <svg class="icon icon-lg text-primary" viewBox="0 0 24 24">
+                          <use href="../assets/icons/icons.svg#icon-laptop"></use>
+                        </svg>
+                        <span>Web App</span>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-4">
+                      <div class="works-everywhere">
+                        <svg class="icon icon-lg text-primary" viewBox="0 0 24 24">
+                          <use href="../assets/icons/icons.svg#icon-phone"></use>
+                        </svg>
+                        <span>Mobile Ready</span>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-4">
+                      <div class="works-everywhere">
+                        <svg class="icon icon-lg text-primary" viewBox="0 0 24 24">
+                          <use href="../assets/icons/icons.svg#icon-calendar"></use>
+                        </svg>
+                        <span>Calendar Sync</span>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-4">
+                      <div class="works-everywhere">
+                        <svg class="icon icon-lg text-primary" viewBox="0 0 24 24">
+                          <use href="../assets/icons/icons.svg#icon-bell"></use>
+                        </svg>
+                        <span>Email Alerts</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-sm text-tertiary mb-0">
+                    Access your schedule from anywhere — sync with Google Calendar, Apple Calendar, and more.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TESTIMONIALS ==================== -->
+      <section class="section section-bg-light">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">TESTIMONIALS</span>
+            <h2 class="section-title">What Students Say</h2>
+            <p class="section-subtitle">Hear from students who transformed their study habits</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body">
+                  <div class="rating mb-3">
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                  </div>
+                  <p class="card-text">Student Reminder App completely transformed how I manage my assignments. I never miss a deadline now!</p>
+                  <div class="d-flex align-items-center gap-3 mt-4">
+                    <div class="avatar avatar-sm">SJ</div>
+                    <div>
+                      <div class="font-semibold">Sarah Johnson</div>
+                      <div class="text-sm text-tertiary">Computer Science, 3rd Year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body">
+                  <div class="rating mb-3">
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                  </div>
+                  <p class="card-text">The exam countdown feature is a lifesaver. I feel so much more prepared for my tests now.</p>
+                  <div class="d-flex align-items-center gap-3 mt-4">
+                    <div class="avatar avatar-sm">MC</div>
+                    <div>
+                      <div class="font-semibold">Michael Chen</div>
+                      <div class="text-sm text-tertiary">Engineering, 2nd Year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body">
+                  <div class="rating mb-3">
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                    <svg class="icon-star text-warning" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-star"></use></svg>
+                  </div>
+                  <p class="card-text">Finally, an app that understands what students actually need. Simple, clean, and effective.</p>
+                  <div class="d-flex align-items-center gap-3 mt-4">
+                    <div class="avatar avatar-sm">ER</div>
+                    <div>
+                      <div class="font-semibold">Emily Rodriguez</div>
+                      <div class="text-sm text-tertiary">Biology, 4th Year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FAQ (New section) ==================== -->
+      <section id="faq" class="section">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions</p>
+          </div>
+
+          <div class="faq-grid">
+            <details class="faq-item">
+              <summary>Is Student Reminder App really free?</summary>
+              <p>Yes! The app is completely free for students, forever. No credit card required, no hidden fees.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I sync with my existing calendar?</summary>
+              <p>Yes. You can sync with Google Calendar, Apple Calendar, and other popular calendar apps.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Does it work on mobile?</summary>
+              <p>Absolutely. The app is fully responsive and works seamlessly on any device — phone, tablet, or desktop.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>How do I get reminded about deadlines?</summary>
+              <p>You'll receive email reminders and in-app notifications before your deadlines. You can customize the timing.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Is my data private?</summary>
+              <p>Yes. Your academic data belongs to you. We never share, sell, or monetize your personal information.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Which devices are supported?</summary>
+              <p>The web app works in all modern browsers. Mobile-ready design ensures a great experience everywhere.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CALL TO ACTION ==================== -->
+      <section class="section section-cta">
+        <div class="container">
+          <div class="text-center">
+            <h2 class="mb-4">Ready to Get Started?</h2>
+            <p class="mb-8 max-w-lg mx-auto">
+              Join 10,000+ students already organizing their academic life with Student Reminder App
+            </p>
+            <a href="/auth/register.html" class="btn btn-primary btn-lg">Create Free Account</a>
+            <p class="mt-4 text-sm">
+              <svg class="icon icon-xs me-1 text-success" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-check"></use></svg>
+              No credit card required · Free forever for students
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row mb-8">
+          <!-- Column 1: Brand -->
+          <div class="col-12 col-md-4 mb-6 mb-md-0">
+            <a href="index.html" class="header-logo mb-3 d-flex align-items-center gap-2">
+              <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+              <span>Student Reminder</span>
+            </a>
+            <p class="text-sm text-tertiary">
+              Helping students organize their academic life. Simple, clean, and effective.
+            </p>
+          </div>
+
+          <!-- Column 2: Product -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Product</h4>
+            <ul class="list-none">
+              <li><a href="#features" class="footer-link">Features</a></li>
+              <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+              <li><a href="#demo" class="footer-link">Live Demo</a></li>
+              <li><a href="#faq" class="footer-link">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Resources -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Resources</h4>
+            <ul class="list-none">
+              <li><a class="footer-link text-tertiary">Documentation</a></li>
+              <li><a class="footer-link text-tertiary">Blog</a></li>
+              <li><a class="footer-link text-tertiary">Support</a></li>
+              <li><a class="footer-link text-tertiary">Changelog</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Legal -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Legal</h4>
+            <ul class="list-none">
+              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+              <li><a href="/terms.html" class="footer-link">Terms of Service</a></li>
+              <li><a class="footer-link text-tertiary">Cookie Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 5: Social -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Connect</h4>
+            <div class="d-flex gap-3">
+              <a href="https://github.com/iamkk369/Student-Reminder-App" class="footer-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-github"></use></svg>
+              </a>
+              <a href="https://www.linkedin.com/" class="footer-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-linkedin"></use></svg>
+              </a>
+              <a href="mailto:khi882006@gmail.com" class="footer-link" aria-label="Email">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-mail"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-6 border-t">
+          <p class="footer-copyright text-center">
+            &copy; 2026 Student Reminder App. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-arrow-up"></use></svg>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="../assets/js/home.js"></script>
+</body>
+</html>
