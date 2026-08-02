@@ -1,0 +1,288 @@
+/* ========================================
+   CSS RESET
+   Sprint 1 - Design System & UI Foundation
+   ======================================== */
+
+/* Modern CSS Reset - Based on Josh Comeau's approach */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default margins and paddings */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with list role */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Remove built-in form focus styles */
+:focus-visible {
+  outline: none;
+}
+
+/* Add accessible focus styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Ensure text inputs and buttons have accessible touch targets */
+input,
+button,
+textarea,
+select {
+  min-height: 44px;
+}
+
+/* Remove text decoration from links by default */
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+/* Improve heading defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+}
+
+/* Make sure buttons don't have extra padding or borders */
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Remove table border spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Fix textarea resizing */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Fix fieldset appearance */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Fix legend appearance */
+legend {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+}
+
+/* Fix label appearance */
+label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+/* Fix hr appearance */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color-light);
+  margin: var(--space-4) 0;
+}
+
+/* Fix abbr appearance */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Fix code appearance */
+code,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+code {
+  background-color: var(--color-gray-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Fix blockquote appearance */
+blockquote {
+  border-left: 4px solid var(--color-primary-500);
+  padding-left: var(--space-4);
+  margin-left: 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Fix mark appearance */
+mark {
+  background-color: var(--color-warning-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Fix details/summary */
+details {
+  padding: var(--space-3);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+summary {
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+details[open] summary {
+  margin-bottom: var(--space-3);
+}
+
+/* Fix progress bar */
+progress {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-full);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--color-primary-500);
+  border-radius: var(--radius-full);
+}
+
+/* Fix meter element */
+meter {
+  width: 100%;
+  height: 8px;
+}
+
+/* Fix dialog element */
+dialog {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xl);
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+dialog::backdrop {
+  background-color: var(--bg-overlay);
+}

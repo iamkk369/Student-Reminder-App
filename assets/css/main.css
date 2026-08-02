@@ -1,0 +1,64 @@
+/* ========================================
+   MAIN STYLESHEET
+   Sprint 1 - Design System & UI Foundation
+   
+   This file imports all CSS modules in the correct order.
+   Do not add custom styles here - use the appropriate module.
+   ======================================== */
+
+/* ========================================
+   1. Design Tokens (Variables)
+   Must be loaded first to ensure all variables are available
+   ======================================== */
+@import url('variables.css');
+
+/* ========================================
+   2. CSS Reset
+   Normalizes browser defaults
+   ======================================== */
+@import url('reset.css');
+
+/* ========================================
+   3. Typography
+   Base typography styles and text utilities
+   ======================================== */
+@import url('typography.css');
+
+/* ========================================
+   4. Layout
+   Container, grid system, page structure
+   ======================================== */
+@import url('layout.css');
+
+/* ========================================
+   5. Components
+   Buttons, forms, cards, badges, alerts, etc.
+   ======================================== */
+@import url('components.css');
+
+/* ========================================
+   6. Utilities
+   Helper classes for quick styling
+   ======================================== */
+@import url('utilities.css');
+
+/* ========================================
+   7. Responsive
+   Media queries and responsive utilities
+   ======================================== */
+@import url('responsive.css');
+
+/* ========================================
+   Custom Styles
+   Add page-specific styles below this line
+   ======================================== */
+
+/*
+ * Example custom styles:
+ * 
+ * .custom-component {
+ *   background-color: var(--color-primary-500);
+ *   color: var(--text-inverse);
+ *   padding: var(--space-4);
+ * }
+ */

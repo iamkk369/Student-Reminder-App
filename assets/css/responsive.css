@@ -1,0 +1,748 @@
+/* ========================================
+   RESPONSIVE
+   Sprint 1 - Design System & UI Foundation
+   ======================================== */
+
+/* ========================================
+   Mobile First Approach
+   ======================================== */
+
+/* Base styles are mobile-first (default) */
+
+/* ========================================
+   Small Devices (Large phones, 640px and up)
+   ======================================== */
+@media (min-width: 640px) {
+  /* Container adjustments */
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* Typography adjustments */
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: var(--space-3) var(--space-6);
+  }
+}
+
+/* ========================================
+   Medium Devices (Tablets, 768px and up)
+   ======================================== */
+@media (min-width: 768px) {
+  /* Container adjustments */
+  .container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  /* Layout adjustments */
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .section-sm {
+    padding: var(--space-6) 0;
+  }
+
+  /* Grid system enhancements */
+  .row {
+    margin-left: calc(var(--space-6) * -1);
+    margin-right: calc(var(--space-6) * -1);
+  }
+
+  .col {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* Card adjustments */
+  .card-body {
+    padding: var(--space-8);
+  }
+
+  .card-header {
+    padding: var(--space-5) var(--space-8);
+  }
+
+  .card-footer {
+    padding: var(--space-5) var(--space-8);
+  }
+
+  /* Form adjustments */
+  .form-group {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Button group horizontal on larger screens */
+  .btn-group-horizontal {
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  /* Display utilities for tablets */
+  .d-md-none {
+    display: none;
+  }
+
+  .d-md-block {
+    display: block;
+  }
+
+  .d-md-flex {
+    display: flex;
+  }
+
+  .d-md-inline-flex {
+    display: inline-flex;
+  }
+
+  .d-md-grid {
+    display: grid;
+  }
+
+  /* Flexbox order adjustments */
+  .order-md-first {
+    order: -9999;
+  }
+
+  .order-md-last {
+    order: 9999;
+  }
+
+  .order-md-0 {
+    order: 0;
+  }
+
+  .order-md-1 {
+    order: 1;
+  }
+
+  .order-md-2 {
+    order: 2;
+  }
+
+  /* Text alignment */
+  .text-md-left {
+    text-align: left;
+  }
+
+  .text-md-center {
+    text-align: center;
+  }
+
+  .text-md-right {
+    text-align: right;
+  }
+
+  /* Margin adjustments */
+  .mt-md-0 {
+    margin-top: 0;
+  }
+
+  .mt-md-4 {
+    margin-top: var(--space-4);
+  }
+
+  .mt-md-6 {
+    margin-top: var(--space-6);
+  }
+
+  .mt-md-8 {
+    margin-top: var(--space-8);
+  }
+
+  .mb-md-0 {
+    margin-bottom: 0;
+  }
+
+  .mb-md-4 {
+    margin-bottom: var(--space-4);
+  }
+
+  .mb-md-6 {
+    margin-bottom: var(--space-6);
+  }
+
+  .mb-md-8 {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Padding adjustments */
+  .px-md-4 {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .px-md-6 {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  .px-md-8 {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .py-md-4 {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .py-md-6 {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .py-md-8 {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+}
+
+/* ========================================
+   Large Devices (Small desktops, 1024px and up)
+   ======================================== */
+@media (min-width: 1024px) {
+  /* Container adjustments */
+  .container {
+    max-width: var(--container-max-width);
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  /* Layout adjustments */
+  .section {
+    padding: var(--space-16) 0;
+  }
+
+  .section-lg {
+    padding: var(--space-20) 0;
+  }
+
+  /* Grid system enhancements */
+  .row {
+    margin-left: calc(var(--space-6) * -1);
+    margin-right: calc(var(--space-6) * -1);
+  }
+
+  /* Card hover effects */
+  .card {
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  }
+
+  /* Sidebar layout (if needed) */
+  .layout-sidebar {
+    display: flex;
+    gap: var(--space-8);
+  }
+
+  .layout-sidebar .sidebar {
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  .layout-sidebar .main-content {
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  /* Display utilities for desktops */
+  .d-lg-none {
+    display: none;
+  }
+
+  .d-lg-block {
+    display: block;
+  }
+
+  .d-lg-flex {
+    display: flex;
+  }
+
+  .d-lg-inline-flex {
+    display: inline-flex;
+  }
+
+  .d-lg-grid {
+    display: grid;
+  }
+
+  /* Grid columns for desktop */
+  .grid-cols-lg-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .grid-cols-lg-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-cols-lg-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-cols-lg-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* Flexbox order adjustments */
+  .order-lg-first {
+    order: -9999;
+  }
+
+  .order-lg-last {
+    order: 9999;
+  }
+
+  .order-lg-0 {
+    order: 0;
+  }
+
+  .order-lg-1 {
+    order: 1;
+  }
+
+  .order-lg-2 {
+    order: 2;
+  }
+
+  /* Text alignment */
+  .text-lg-left {
+    text-align: left;
+  }
+
+  .text-lg-center {
+    text-align: center;
+  }
+
+  .text-lg-right {
+    text-align: right;
+  }
+
+  /* Margin adjustments */
+  .mt-lg-0 {
+    margin-top: 0;
+  }
+
+  .mt-lg-4 {
+    margin-top: var(--space-4);
+  }
+
+  .mt-lg-6 {
+    margin-top: var(--space-6);
+  }
+
+  .mt-lg-8 {
+    margin-top: var(--space-8);
+  }
+
+  .mt-lg-12 {
+    margin-top: var(--space-12);
+  }
+
+  .mb-lg-0 {
+    margin-bottom: 0;
+  }
+
+  .mb-lg-4 {
+    margin-bottom: var(--space-4);
+  }
+
+  .mb-lg-6 {
+    margin-bottom: var(--space-6);
+  }
+
+  .mb-lg-8 {
+    margin-bottom: var(--space-8);
+  }
+
+  .mb-lg-12 {
+    margin-bottom: var(--space-12);
+  }
+
+  /* Padding adjustments */
+  .px-lg-4 {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .px-lg-6 {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  .px-lg-8 {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .py-lg-4 {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .py-lg-6 {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .py-lg-8 {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .py-lg-12 {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+/* ========================================
+   Extra Large Devices (Desktops, 1280px and up)
+   ======================================== */
+@media (min-width: 1280px) {
+  /* Container adjustments */
+  .container {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+  }
+
+  /* Display utilities for large desktops */
+  .d-xl-none {
+    display: none;
+  }
+
+  .d-xl-block {
+    display: block;
+  }
+
+  .d-xl-flex {
+    display: flex;
+  }
+
+  .d-xl-inline-flex {
+    display: inline-flex;
+  }
+
+  .d-xl-grid {
+    display: grid;
+  }
+
+  /* Grid columns for large desktops */
+  .grid-cols-xl-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .grid-cols-xl-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  /* Text alignment */
+  .text-xl-left {
+    text-align: left;
+  }
+
+  .text-xl-center {
+    text-align: center;
+  }
+
+  .text-xl-right {
+    text-align: right;
+  }
+
+  /* Margin adjustments */
+  .mt-xl-0 {
+    margin-top: 0;
+  }
+
+  .mt-xl-6 {
+    margin-top: var(--space-6);
+  }
+
+  .mt-xl-8 {
+    margin-top: var(--space-8);
+  }
+
+  .mt-xl-12 {
+    margin-top: var(--space-12);
+  }
+
+  .mb-xl-0 {
+    margin-bottom: 0;
+  }
+
+  .mb-xl-6 {
+    margin-bottom: var(--space-6);
+  }
+
+  .mb-xl-8 {
+    margin-bottom: var(--space-8);
+  }
+
+  .mb-xl-12 {
+    margin-bottom: var(--space-12);
+  }
+}
+
+/* ========================================
+   2XL Devices (Large desktops, 1536px and up)
+   ======================================== */
+@media (min-width: 1536px) {
+  /* Container adjustments */
+  .container {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
+
+  /* Display utilities */
+  .d-2xl-none {
+    display: none;
+  }
+
+  .d-2xl-block {
+    display: block;
+  }
+
+  .d-2xl-flex {
+    display: flex;
+  }
+
+  .d-2xl-inline-flex {
+    display: inline-flex;
+  }
+
+  .d-2xl-grid {
+    display: grid;
+  }
+
+  /* Grid columns */
+  .grid-cols-2xl-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .grid-cols-2xl-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+  /* Reset for printing */
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Show all content */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+  }
+
+  /* Page breaks */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  img,
+  table,
+  figure,
+  .card {
+    page-break-inside: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Hide non-essential elements */
+  .no-print,
+  .sidebar,
+  .header,
+  .footer,
+  .btn,
+  .alert,
+  .tooltip {
+    display: none !important;
+  }
+
+  /* Show links */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  /* Container adjustments */
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Background colors */
+  .card,
+  .alert {
+    border: 1px solid #ccc;
+    background-color: #fff !important;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn.loading::after {
+    animation: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+
+  .progress-bar-animated {
+    animation: none;
+  }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 2px;
+  }
+
+  .form-control {
+    border-width: 2px;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+}
+
+/* ========================================
+   Dark Mode Support (Future)
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode variables (to be customized) */
+  :root {
+    --bg-primary: #1f2937;
+    --bg-secondary: #111827;
+    --bg-tertiary: #030712;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+    --text-quaternary: #6b7280;
+    --border-color: #374151;
+    --border-color-light: #4b5563;
+    --border-color-dark: #6b7280;
+  }
+
+  /* Dark mode adjustments */
+  .card {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+  }
+
+  .form-control {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .form-control:focus {
+    border-color: var(--color-primary-400);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+  }
+}
+
+/* ========================================
+   Touch Device Optimizations
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase touch targets */
+  .btn {
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+
+  .form-control {
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .page-link {
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Improve tap highlighting */
+  .btn,
+  .form-control,
+  .card-interactive {
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
+  }
+}
+
+/* ========================================
+   Landscape Orientation (Mobile)
+   ======================================== */
+@media (max-width: 767px) and (orientation: landscape) {
+  .container {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
+  .section {
+    padding: var(--space-6) 0;
+  }
+
+  .header-content {
+    height: 56px;
+  }
+
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+  }
+}
