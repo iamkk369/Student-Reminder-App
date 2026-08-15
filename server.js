@@ -17,7 +17,10 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 const { testConnection } = require('./db/connection');
+const originProtection = require('./middleware/originProtection');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,13 +33,17 @@ let databaseStatus = 'disconnected';
 // Global Middleware
 // ========================================
 app.use(helmet());            // Security headers
-app.use(cors());              // Cross-origin API access
+app.use(cors({ origin: process.env.ALLOWED_ORIGIN || 'http://localhost:3000' }));              
 app.use(express.json());      // Parse JSON request bodies
 app.use(morgan('dev'));       // Request logging
+app.use(cookieParser());      // Parse cookies
+app.use(originProtection);    // Origin/CSRF protection for API routes
 
 // ========================================
 // Routes
 // ========================================
+app.use('/api/auth', authRoutes);    // Authentication routes
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',

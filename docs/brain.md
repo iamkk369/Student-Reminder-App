@@ -72,11 +72,57 @@ Phase A3 — Database Foundation (users + reminders tables) — COMPLETE
 ## Current Work
 
 ```text
-CURRENT TASK:
 Phase B — Authentication
-```
+B1 — Registration API (POST /api/auth/register): IN PROGRESS
 
 ### Phase A3 — Database Foundation — Completed
+Files created: `db/migrations/001_initial_schema.sql`
+Files modified: `docs/brain.md`
+
+Schema: `utils/hashPassword.js`, `middleware/rateLimit.js`, `middleware/originProtection.js`, `controllers/authController.js`, `routes/auth.js`
+Files modified: `server.js`, `package.json`, `package-lock.json`, `.env.example`, `docs/brain.md`
+Dependencies added: `bcrypt`, `express-rate-limit`, `cookie-parser`
+
+Changes:
+- `utils/hashPassword.js`: bcrypt hashing utility (saltRounds=12)
+- `middleware/rateLimit.js`: 5 req/15min per IP limiter for registration
+- `middleware/originProtection.js`: Origin + CSRF protection (SameSite=Strict cookie + ORIGIN check + x-api-request header)
+- `controllers/authController.js`: registration logic with bcrypt hash → DB transaction (BEGIN/COMMIT/ROLLBACK) → user INSERT + session INSERT → secure cookie set
+- `routes/auth.js`: mounts POST /register with rate limiter
+- `server.js`: added cookieParser(), originProtection middleware, /api/auth route mount, CORS configured with ALLOWED_ORIGIN
+- `.env.example`: added ALLOWED_ORIGIN for CORS + Origin protection
+- Auth strategy: HttpOnly cookie with opaque random session ID stored as SHA-256 hash in sessions table
+
+### Testing Status (Phase B1)
+- `npm install`: ✅ (bcrypt, express-rate-limit, cookie-parser installed)
+- `npm ls --depth=0`: ✅ (all deps present)
+- `node server.js`: ✅ (starts without crash)
+- `GET /api/health` → HTTP 200: ✅ (regression)
+- `GET /api/nonexistent` → 404: ✅ (regression)
+- Registration validation: ✅ (400 for missing fields, invalid email, weak password)
+- Origin protection: ✅ (403 for bad origin, missing header)
+- Rate limiting: ✅ (429 after 5 attempts)
+- bcrypt rounds = 12: ✅
+- Password hashed before transaction: ✅
+- ROLLBACK on failure: ✅
+- Connection release in finally: ✅
+- Session hash stored as SHA-256: ✅
+- Raw session ID never logged: ✅
+- Sensitive fields never in response: ✅
+- Actual MySQL registration: ❌ NOT TESTED — no MySQL instance available on this machine
+
+## Next Planned Work
+
+- **Phase B2**: Login + session creation
+- **Phase B3**: Authentication middleware + /api/auth/me
+- **Phase B4**: Logout flow
+- **Phase C**: Application shell / dashboard
+- **Phase D**: Reminder CRUD
+
+## Known Issues
+
+- ❌ Live MySQL validation BLOCKED — no MySQL server available on this machine (affects live registration/database tests)
+- Future pages (features, contact, privacy, terms, auth, app) referenced in nav/footer but not yet built — expected during progression
 Files created: `db/migrations/001_initial_schema.sql`
 Files modified: `docs/brain.md`
 

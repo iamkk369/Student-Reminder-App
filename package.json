@@ -28,10 +28,13 @@
     "url": "https://github.com/iamkk369/Student-Reminder-App/issues"
   },
   "homepage": "https://github.com/iamkk369/Student-Reminder-App#readme",
-  "dependencies": {
+    "dependencies": {
+    "bcrypt": "^5.1.1",
+        "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-rate-limit": "^7.4.0",
     "helmet": "^8.3.0",
     "morgan": "^1.11.0",
     "mysql2": "^3.23.3"
