@@ -6,16 +6,14 @@
 
 - **Project**: Student Reminder App
 - **Purpose**: Help students organize assignments, exams, lectures, practicals, and reminders through a clean, responsive interface
-- **Current Phase**: Frontend/prototype development (public pages, sequential)
+- **Current Phase**: Backend foundation — Node.js/Express (Phase A1), frontend prototype complete
 
 ## Technology Stack
 
-- HTML5
-- CSS3 (custom design system, no frameworks)
-- Vanilla JavaScript ES6+
-- Git/GitHub
-- VS Code + Cline
-- Future: Node.js, Express.js, MySQL (NOT implemented — frontend only)
+- Frontend: HTML5 + CSS3 (custom design system, no frameworks) + Vanilla JavaScript ES6+
+- Backend (Phase A1): Node.js + Express.js + cors + helmet + morgan
+- Future: MySQL (Phase A2+), authentication (Phase B)
+- Git/GitHub, VS Code + Cline
 
 ## Architecture
 
@@ -26,13 +24,15 @@ Student-Reminder-App/
 │   ├── js/         # Page-specific JS
 │   └── icons/      # SVG sprite (icons.svg) + logo
 ├── pages/          # HTML pages (index.html = Home, about.html = About)
-├── docs/           # Documentation + brain.md + development-status.md
+├── server.js       # Express server (Phase A1)
+├── package.json    # Node.js dependencies (Phase A1)
+├── docs/           # Documentation + brain.md
 ├── dev/            # Development previews/validation scripts
 └── README.md, PROJECT_STRUCTURE.md, LICENSE
 ```
 
-- Pages: `index.html` (Home, complete), `about.html` (About, current)
-- Future pages: features, contact, privacy, terms, auth, dashboard, etc.
+- Pages: `index.html` (Home, complete), `about.html` (About, complete)
+- Future pages: features, contact, privacy, terms, auth, app (dashboard, etc.)
 
 ## Design System
 
@@ -63,35 +63,52 @@ Sprint 2 — Website Architecture — COMPLETE
 Sprint 2.5 — Architecture Validation — COMPLETE
 Sprint 3A — UI/UX Design — COMPLETE
 Sprint 3B Phase 2 — Home Page — COMPLETE
-Sprint 3B Phase 3 — About Page — CURRENT
+Sprint 3B Phase 3 — About Page — COMPLETE
+Phase A1 — Node.js + Express Server Foundation — COMPLETE
 ```
 
 ## Current Work
 
 ```text
 CURRENT TASK:
-About Page implementation
+Phase A2 — MySQL Connection
 ```
 
-Files created: `pages/about.html`, `assets/css/about.css`, `docs/brain.md`
-Files modified: `README.md`
+### Phase A1 — Completed
+Files created: `server.js`, `package.json`
+Dependencies: express, cors, helmet, morgan
+Endpoints: `GET /api/health` → HTTP 200 JSON
+`.env.example` NOT created — not needed until Phase A2 (DB credentials)
+`.gitignore` NOT modified — already covers `node_modules/`, `.env`, `*.log`
+
+### Testing Status (Phase A1)
+- `npm install` ✅ (76 packages, 0 vulnerabilities)
+- `node server.js` starts ✅
+- `GET /api/health` → 200, valid JSON ✅
+- 404 handler → 404 JSON ✅
+- Existing frontend files unchanged ✅
 
 ## Next Planned Work
 
-- Features Page (per website-architecture public pages list)
+- **Phase A2**: MySQL connection (`db/connection.js`, `mysql2`, `.env`)
+- **Phase A3**: Database foundation (users + reminders tables)
+- **Phase B**: Authentication
 
 ## Important Decisions
 
 - Vanilla JavaScript instead of React
 - Existing design system must be reused (do not introduce Bootstrap/Tailwind/jQuery)
 - Pages are developed incrementally
-- No scope creep — only the current sprint's page
+- No scope creep — only the current phase's task
 - Existing working code must not be overwritten
 - One sprint/phase at a time
 - Testing must happen before Git commit
 - Git push happens only after user approval
-- About page loads `home.css` for shared navbar/footer/icon/mobile-menu styles, plus `about.css` for page-specific styles (prevents CSS duplication)
+- Backend stack: Node.js + Express.js + MySQL (approved)
+- Auth strategy kept OPEN — choose HttpOnly cookie vs Bearer token at Phase B
+- Calendar = aggregated view (no duplicate `calendar_events` table)
+- Database tables built incrementally (users first, then reminders, then modules)
 
 ## Known Issues
 
-- None currently. Future pages (features, contact, privacy, terms) are referenced in nav/footer but not yet built — expected during progression.
+- None currently. Future pages (features, contact, privacy, terms, auth, app) are referenced in nav/footer but not yet built — expected during progression.
