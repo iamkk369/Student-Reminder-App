@@ -66,18 +66,34 @@ Sprint 3B Phase 2 — Home Page — COMPLETE
 Sprint 3B Phase 3 — About Page — COMPLETE
 Phase A1 — Node.js + Express Server Foundation — COMPLETE
 Phase A2 — MySQL Connection — COMPLETE
+Phase A3 — Database Foundation (users + reminders tables) — COMPLETE
 ```
 
 ## Current Work
 
 ```text
 CURRENT TASK:
-Phase A3 — Database Foundation (users + reminders tables)
+Phase B — Authentication
 ```
+
+### Phase A3 — Database Foundation — Completed
+Files created: `db/migrations/001_initial_schema.sql`
+Files modified: `docs/brain.md`
+
+Schema:
+- Database: `student_reminder` (matches `.env.example` `DB_NAME`)
+- Table `users`: id (INT UNSIGNED AI PK), name (VARCHAR 100 NOT NULL), email (VARCHAR 255 NOT NULL UNIQUE), password_hash (VARCHAR 255 NOT NULL), created_at/updated_at (TIMESTAMP)
+- Table `reminders`: id (INT UNSIGNED AI PK), user_id (INT UNSIGNED NOT NULL FK to users.id ON DELETE CASCADE), title (NOT NULL), description (TEXT), due_date (DATETIME NOT NULL), priority ENUM(low/medium/high/urgent DEFAULT medium), status ENUM(pending/completed/cancelled DEFAULT pending), timestamps
+- Engine: InnoDB / utf8mb4 / utf8mb4_unicode_ci (both tables)
+
+Constraint strategy:
+- ENUM for priority/status — type-checked on ALL MySQL versions; strict mode (default 5.7+/8.0) makes invalid values a hard error
+- FK user_id links reminders to users, ON DELETE CASCADE
+- UNIQUE email; NOT NULL on required columns
+- Matching INT UNSIGNED types on both FK sides; composite index (user_id, due_date); index on status
 
 ### Phase A1 — Completed
 Files created: `server.js`, `package.json`
-Dependencies: express, cors, helmet, morgan
 Endpoints: `GET /api/health` → HTTP 200 JSON
 
 ### Phase A2 — Completed
@@ -88,7 +104,7 @@ Changes:
 - MySQL connection pool using `mysql2/promise` (Phase A2)
 - `require('dotenv').config()` loads credentials from `.env`
 - Non-blocking startup connection verification (failure-safe)
-- `/api/health` now includes `database: "connected" | "disconnected"` status
+- `/api/health` now includes `database: 'connected' | 'disconnected'` status
 - `.env.example` created with placeholders (now tracked via `.gitignore` fix)
 - `.gitignore`: removed `.env.example` rule (template safe to commit); `.env` remains protected
 - Safe error handling: credentials never logged, passwords redacted in error messages
