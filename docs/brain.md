@@ -65,34 +65,52 @@ Sprint 3A — UI/UX Design — COMPLETE
 Sprint 3B Phase 2 — Home Page — COMPLETE
 Sprint 3B Phase 3 — About Page — COMPLETE
 Phase A1 — Node.js + Express Server Foundation — COMPLETE
+Phase A2 — MySQL Connection — COMPLETE
 ```
 
 ## Current Work
 
 ```text
 CURRENT TASK:
-Phase A2 — MySQL Connection
+Phase A3 — Database Foundation (users + reminders tables)
 ```
 
 ### Phase A1 — Completed
 Files created: `server.js`, `package.json`
 Dependencies: express, cors, helmet, morgan
 Endpoints: `GET /api/health` → HTTP 200 JSON
-`.env.example` NOT created — not needed until Phase A2 (DB credentials)
-`.gitignore` NOT modified — already covers `node_modules/`, `.env`, `*.log`
 
-### Testing Status (Phase A1)
-- `npm install` ✅ (76 packages, 0 vulnerabilities)
-- `node server.js` starts ✅
-- `GET /api/health` → 200, valid JSON ✅
-- 404 handler → 404 JSON ✅
-- Existing frontend files unchanged ✅
+### Phase A2 — Completed
+Files created: `db/connection.js`, `.env.example`
+Files modified: `server.js`, `package.json`, `.gitignore`
+Dependencies added: `mysql2`, `dotenv`
+Changes:
+- MySQL connection pool using `mysql2/promise` (Phase A2)
+- `require('dotenv').config()` loads credentials from `.env`
+- Non-blocking startup connection verification (failure-safe)
+- `/api/health` now includes `database: "connected" | "disconnected"` status
+- `.env.example` created with placeholders (now tracked via `.gitignore` fix)
+- `.gitignore`: removed `.env.example` rule (template safe to commit); `.env` remains protected
+- Safe error handling: credentials never logged, passwords redacted in error messages
+- Server continues running even if MySQL unavailable
+
+### Testing Status (Phase A2)
+- `npm install` ✅ (88 packages, 0 vulnerabilities)
+- `npm ls --depth=0` ✅ (cors, dotenv 17.4.2, express, helmet, morgan, mysql2 3.23.3)
+- `node server.js` starts ✅ (even with no MySQL available)
+- `GET /api/health` → 200, valid JSON with `database: "disconnected"` ✅
+- `GET /api/nonexistent` → 404 JSON ✅ (regression)
+- Failure-safe path (no MySQL): server continues, database status reported safely, no crash ✅
+- Credentials exposure test: no credentials leaked ✅
+- Existing frontend files unchanged ✅ (verified via `git diff --name-only`)
+- Successful MySQL connection: ❌ **NOT TESTED** — no MySQL instance available on this machine. Requires a MySQL server for full verification (see Risks).
 
 ## Next Planned Work
 
-- **Phase A2**: MySQL connection (`db/connection.js`, `mysql2`, `.env`)
 - **Phase A3**: Database foundation (users + reminders tables)
 - **Phase B**: Authentication
+- **Phase C**: Application shell / dashboard
+- **Phase D**: Reminder CRUD
 
 ## Important Decisions
 

@@ -1,19 +1,30 @@
 /* ========================================
    STUDENT REMINDER APP
-   Phase A1: Node.js + Express Foundation
+   Phase A2: Express Server + MySQL Connection
 
-   Starts the Express server and exposes
-   a /api/health endpoint for connectivity
-   checks. No database / auth / CRUD yet.
+   Express server with /api/health endpoint
+   that reports database connectivity status.
+
+   Database availability is verified at
+   startup WITHOUT blocking server startup.
+   If MySQL is unavailable, the server keeps
+   running and reports database: "disconnected".
    ======================================== */
+
+require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const { testConnection } = require('./db/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Tracked database connectivity state.
+// Updated asynchronously at startup.
+let databaseStatus = 'disconnected';
 
 // ========================================
 // Global Middleware
@@ -30,6 +41,7 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
     service: 'student-reminder-app-api',
+    database: databaseStatus,
     timestamp: new Date().toISOString()
   });
 });
@@ -55,4 +67,19 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Student Reminder API running at http://localhost:${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
+
+  // Verify database connectivity (non-blocking, failure-safe).
+  testConnection()
+    .then((result) => {
+      databaseStatus = result.connected ? 'connected' : 'disconnected';
+      console.log(
+        result.connected
+          ? '[database] Connected'
+          : '[database] Unavailable — server continues with database: "disconnected"'
+      );
+    })
+    .catch(() => {
+      databaseStatus = 'disconnected';
+      console.error('[database] Unexpected error during startup check');
+    });
 });
