@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Student Reminder App</title>
+  <meta name="description" content="Learn about Student Reminder App — a free, student-focused web application for managing assignments, exams, lectures, and reminders in one place.">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About - Student Reminder App">
+  <meta property="og:description" content="Learn about Student Reminder App — a free, student-focused web application for managing academic life.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Shared Page Styles (navbar, mobile menu, icons, section headers, footer, back-to-top) -->
+  <link rel="stylesheet" href="../assets/css/home.css">
+
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="../assets/css/about.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <!-- Logo (Left) -->
+        <a href="index.html" class="header-logo" aria-label="Student Reminder App - Home">
+          <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+          <span>Student Reminder</span>
+        </a>
+
+        <!-- Navigation Links (Center - Desktop) -->
+        <nav class="header-nav d-none d-lg-flex" aria-label="Main navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active" aria-current="page">About</a>
+        </nav>
+
+        <!-- Action Buttons (Right) -->
+        <div class="d-none d-lg-flex align-items-center gap-4">
+          <a href="/auth/login.html" class="btn btn-outline">Login</a>
+          <a href="/auth/register.html" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="d-lg-none mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg class="mobile-menu-icon" width="24" height="24" viewBox="0 0 24 24">
+            <use href="../assets/icons/icons.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <a href="index.html" class="header-logo">
+            <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+            <span>Student Reminder</span>
+          </a>
+          <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="../assets/icons/icons.svg#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-menu-nav">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="about.html" class="mobile-nav-link active">About</a>
+          <a href="/auth/login.html" class="mobile-nav-link mobile-nav-link--secondary">Login</a>
+          <a href="/auth/register.html" class="mobile-nav-link mobile-nav-link--primary">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ==================== ABOUT HERO ==================== -->
+      <section class="about-hero">
+        <div class="container">
+          <!-- Breadcrumbs -->
+          <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="breadcrumb justify-center">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">About</li>
+            </ol>
+          </nav>
+
+          <span class="badge badge-primary badge-lg mb-6">About Student Reminder App</span>
+          <h1 class="about-hero-title">Helping Students Stay Organized, On Track, and Ahead</h1>
+          <p class="about-hero-subtitle mx-auto">
+            Student Reminder App is a free, student-focused web application built to help you
+            manage assignments, exams, lectures, and reminders — all in one clean, simple place.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================== PROJECT INTRODUCTION ==================== -->
+      <section class="section">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Left - Intro Text -->
+            <div class="col-12 col-lg-6 mb-8 mb-lg-0">
+              <span class="section-label d-inline-block mb-3">PROJECT INTRODUCTION</span>
+              <h2 class="section-title mb-6">What is Student Reminder App?</h2>
+              <p class="text-secondary mb-6">
+                Student Reminder App is an academic organization tool that gives students a single,
+                intuitive place to track the things that matter most — assignments, examinations,
+                lectures, practicals, and personal reminders.
+              </p>
+              <p class="text-secondary mb-8">
+                Juggling multiple subjects, deadlines, and schedules can quickly become overwhelming.
+                We built Student Reminder App to replace scattered sticky notes and spreadsheets with
+                one clean, reliable system designed specifically for how students actually study and work.
+              </p>
+
+              <div class="mb-4">
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">Never miss a deadline again</h3>
+                    <p class="card-text mb-0">Assignments and exam reminders handled in one reliable place.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">One organized workspace</h3>
+                    <p class="card-text mb-0">Lectures, practicals, projects, and personal tasks together.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3">
+                  <div class="benefit-check">
+                    <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-check"></use>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="card-title">Less stress, more confidence</h3>
+                    <p class="card-text mb-0">Always know what's due and when — before it becomes urgent.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right - Problem It Solves -->
+            <div class="col-12 col-lg-6">
+              <div class="card card-flat">
+                <div class="card-body">
+                  <h3 class="card-title mb-1">The problem it solves</h3>
+                  <p class="text-sm text-tertiary mb-6">Real challenges students face every semester</p>
+
+                  <div class="d-flex align-items-start gap-3 mb-4">
+                    <div class="benefit-check">
+                      <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                        <use href="../assets/icons/icons.svg#icon-check"></use>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-primary">Missed assignment deadlines</div>
+                      <p class="text-sm text-tertiary mb-0">Important coursework slipping through the cracks</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3 mb-4">
+                    <div class="benefit-check">
+                      <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                        <use href="../assets/icons/icons.svg#icon-check"></use>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-primary">Exam dates sneaking up</div>
+                      <p class="text-sm text-tertiary mb-0">No clear view of what's coming next</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3 mb-4">
+                    <div class="benefit-check">
+                      <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                        <use href="../assets/icons/icons.svg#icon-check"></use>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-primary">Scattered notes and tools</div>
+                      <p class="text-sm text-tertiary mb-0">Sticky tabs, spreadsheets, and group chats all at once</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3">
+                    <div class="benefit-check">
+                      <svg class="icon icon-sm text-inverse" viewBox="0 0 24 24">
+                        <use href="../assets/icons/icons.svg#icon-check"></use>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold text-primary">Last-minute academic panic</div>
+                      <p class="text-sm text-tertiary mb-0">Late nights discovered while scrambling to catch up</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROJECT MISSION ==================== -->
+      <section class="section section-bg-light">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">OUR MISSION</span>
+            <h2 class="section-title">Making Academic Organization Accessible</h2>
+            <p class="section-subtitle">Our mission is to help students reduce stress, improve productivity, and achieve their academic goals through better organization.</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-calendar"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Organize Academic Activities</h3>
+                  <p class="card-text">Keep assignments, exams, lectures, and practicals in one structured place.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-clipboard"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Track Deadlines</h3>
+                  <p class="card-text">Never lose sight of a due date with clear timelines and priorities.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-bell"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Manage Reminders</h3>
+                  <p class="card-text">Set reminders that actually reach you before deadlines, not after.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-trophy"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Improve Time Management</h3>
+                  <p class="card-text">Plan smarter study sessions and build consistent academic habits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== WHY STUDENT REMINDER APP ==================== -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">WHY STUDENT REMINDER APP</span>
+            <h2 class="section-title">Built around how students actually work</h2>
+            <p class="section-subtitle">Practical benefits that make a real difference in everyday academic life</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-clipboard"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Assignment Tracking</h3>
+                  <p class="card-text">Track every deadline with clear due dates, priorities, and subjects.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-calendar"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Exam Countdown</h3>
+                  <p class="card-text">Prepare with exam schedules and automatic countdown timers.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-bell"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Smart Reminders</h3>
+                  <p class="card-text">Get notified before deadlines so nothing slips through the cracks.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-user"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Student-Focused Design</h3>
+                  <p class="card-text">An interface built for students — not enterprise software.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-lightning"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Fast & Lightweight</h3>
+                  <p class="card-text">Loads in milliseconds, even on campus Wi-Fi.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-star"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Free Forever</h3>
+                  <p class="card-text">No credit card, no hidden fees. Education should be free to organize.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CORE VALUES ==================== -->
+      <section class="section section-bg-light">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">CORE VALUES</span>
+            <h2 class="section-title">The principles behind everything we build</h2>
+            <p class="section-subtitle">Simple, accessible, private, and always improving</p>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-primary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-star"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Simplicity First</h3>
+                  <p class="card-text">Complex problems deserve simple tools. Our interface stays clean and intuitive.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-user"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Accessible to All</h3>
+                  <p class="card-text">Every student deserves access. We follow WCAG guidelines for usability.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-success mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-shield"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Privacy Protected</h3>
+                  <p class="card-text">Your data is yours. We never sell or share your personal information.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mb-8">
+              <div class="card h-full">
+                <div class="card-body text-center">
+                  <div class="feature-icon feature-icon-secondary mx-auto mb-4">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                      <use href="../assets/icons/icons.svg#icon-lightning"></use>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Continuous Innovation</h3>
+                  <p class="card-text">We keep improving based on student feedback and modern web technologies.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TECHNOLOGY / DEVELOPMENT APPROACH ==================== -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header text-center mb-12">
+            <span class="section-label">TECHNOLOGY</span>
+            <h2 class="section-title">Built with Modern Web Technologies</h2>
+            <p class="section-subtitle">Simple, fast, and maintainable — no heavy frameworks required</p>
+          </div>
+
+          <div class="row justify-center">
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="tech-icon tech-icon--primary mx-auto mb-3">HTML5</div>
+                  <h4 class="card-title">HTML5</h4>
+                  <p class="text-sm text-tertiary">Semantic page structure</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="tech-icon tech-icon--secondary mx-auto mb-3">CSS3</div>
+                  <h4 class="card-title">CSS3</h4>
+                  <p class="text-sm text-tertiary">Custom design system</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="tech-icon tech-icon--success mx-auto mb-3">JS</div>
+                  <h4 class="card-title">JavaScript (ES6+)</h4>
+                  <p class="text-sm text-tertiary">Vanilla JS interactivity</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="tech-icon tech-icon--info mx-auto mb-3">RWD</div>
+                  <h4 class="card-title">Responsive Design</h4>
+                  <p class="text-sm text-tertiary">Mobile-first layouts</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 mb-6">
+              <div class="card text-center h-full">
+                <div class="card-body">
+                  <div class="tech-icon tech-icon--warning mx-auto mb-3">GIT</div>
+                  <h4 class="card-title">Git & GitHub</h4>
+                  <p class="text-sm text-tertiary">Version control</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Future Development Note -->
+          <div class="card card-flat mb-0">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-4 mb-4">
+                <div class="feature-icon feature-icon-secondary flex-shrink-0">
+                  <svg class="icon icon-lg" viewBox="0 0 24 24">
+                    <use href="../assets/icons/icons.svg#icon-rocket"></use>
+                  </svg>
+                </div>
+                <h3 class="card-title mb-0">Future Development</h3>
+                <span class="badge badge-warning">Planned — Not Yet Implemented</span>
+              </div>
+              <p class="card-text mb-0">
+                Node.js, Express.js, and MySQL are planned for future sprints to add user accounts,
+                cloud synchronization, advanced notifications, and a persistent database. The current
+                build is a frontend prototype — these backend features have not been implemented yet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CALL TO ACTION ==================== -->
+      <section class="section section-cta">
+        <div class="container">
+          <div class="text-center">
+            <h2 class="mb-4">Ready to Get Organized?</h2>
+            <p class="mb-8 max-w-lg mx-auto">
+              Join 10,000+ students already managing their academic life with Student Reminder App
+            </p>
+            <a href="/auth/register.html" class="btn btn-primary btn-lg">Get Started Free</a>
+            <p class="mt-4 text-sm">
+              <svg class="icon icon-xs me-1 text-success" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-check"></use></svg>
+              No credit card required · Free forever for students
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row mb-8">
+          <!-- Column 1: Brand -->
+          <div class="col-12 col-md-4 mb-6 mb-md-0">
+            <a href="index.html" class="header-logo mb-3 d-flex align-items-center gap-2">
+              <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+              <span>Student Reminder</span>
+            </a>
+            <p class="text-sm text-tertiary">
+              Helping students organize their academic life. Simple, clean, and effective.
+            </p>
+          </div>
+
+          <!-- Column 2: Product -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Product</h4>
+            <ul class="list-none">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li><a id="footer-features-link" class="footer-link text-tertiary">Features</a></li>
+              <li><a class="footer-link text-tertiary">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Resources -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Resources</h4>
+            <ul class="list-none">
+              <li><a class="footer-link text-tertiary">Documentation</a></li>
+              <li><a class="footer-link text-tertiary">Blog</a></li>
+              <li><a class="footer-link text-tertiary">Support</a></li>
+              <li><a class="footer-link text-tertiary">Changelog</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Legal -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Legal</h4>
+            <ul class="list-none">
+              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+              <li><a href="/terms.html" class="footer-link">Terms of Service</a></li>
+              <li><a class="footer-link text-tertiary">Cookie Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 5: Social -->
+          <div class="col-12 col-md-2 mb-6 mb-md-0">
+            <h4 class="text-sm font-semibold mb-4">Connect</h4>
+            <div class="d-flex gap-3">
+              <a href="https://github.com/iamkk369/Student-Reminder-App" class="footer-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-github"></use></svg>
+              </a>
+              <a href="https://www.linkedin.com/" class="footer-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-linkedin"></use></svg>
+              </a>
+              <a href="mailto:khi882006@gmail.com" class="footer-link" aria-label="Email">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-mail"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-6 border-t">
+          <p class="footer-copyright text-center">
+            &copy; 2026 Student Reminder App. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="../assets/icons/icons.svg#icon-arrow-up"></use></svg>
+  </button>
+
+  <!-- JavaScript (shared: mobile menu, back-to-top, navbar scroll) -->
+  <script src="../assets/js/home.js"></script>
+</body>
+</html>

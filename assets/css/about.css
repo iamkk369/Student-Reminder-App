@@ -1,0 +1,118 @@
+/* ========================================
+   ABOUT PAGE STYLES
+   Sprint 3B - Phase 3: About Page Development
+
+   These styles extend the Design System and
+   shared page styles (home.css) with
+   about page-specific layouts and elements.
+   ======================================== */
+
+/* ========================================
+   About Hero
+   ======================================== */
+
+.about-hero {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-16);
+  background: linear-gradient(180deg, var(--color-primary-50) 0%, var(--bg-primary) 100%);
+  text-align: center;
+}
+
+.about-hero-title {
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-4);
+}
+
+.about-hero-subtitle {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+
+@media (min-width: 768px) {
+  .about-hero {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-20);
+  }
+
+  .about-hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-hero-title {
+    font-size: 48px;
+  }
+}
+
+/* ========================================
+   Navigation Active State
+   (Home page uses anchor links; About
+   uses page links, so active state is
+   defined here)
+   ======================================== */
+
+.nav-link.active {
+  color: var(--color-primary-600);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.mobile-nav-link.active {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+/* ========================================
+   Tech Icon (Technology Section)
+   ======================================== */
+
+.tech-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+}
+
+.tech-icon--primary {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.tech-icon--secondary {
+  background-color: var(--color-secondary-50);
+  color: var(--color-secondary-700);
+}
+
+.tech-icon--success {
+  background-color: var(--color-success-50);
+  color: var(--color-success-700);
+}
+
+.tech-icon--info {
+  background-color: var(--color-info-50);
+  color: var(--color-info-700);
+}
+
+.tech-icon--warning {
+  background-color: var(--color-warning-50);
+  color: var(--color-warning-700);
+}
