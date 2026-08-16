@@ -119,6 +119,7 @@ Backend phases completed:
 - **Phase B1**: Sessions table for secure session management ✅ (migration file restored on disk in P1 — see note below)
 - **Phase B2**: User registration with bcrypt hashing and session creation
 - **Phase B3**: Login endpoint with bcrypt authentication + session creation
+- **Phase B4**: Auth middleware + /api/auth/me (session validation) ✅
 
 Frontend remains prototype (Home + About pages complete).
 
@@ -143,7 +144,7 @@ Live MySQL integration testing is currently blocked — no MySQL server is avail
 | **B1** | Sessions Table      | Secure session storage (SHA-256 hashed IDs)           |
 | **B2** | Registration        | User registration + bcrypt + session creation         |
 | **B3** | Login               | Authentication + session creation                     |
-| **B4** | Auth Middleware     | Token validation + `/api/auth/me`                     |
+| **B4** | Auth Middleware     | Token validation + `/api/auth/me` ✅                        |
 | **B5** | Logout              | Session invalidation                                 |
 | **C**  | Dashboard           | Authenticated app shell                               |
 | **D**  | Reminder CRUD       | Create, edit, delete reminders                        |
@@ -208,4 +209,4 @@ If you find this project interesting or useful, please consider giving it a star
 
 **Built with ❤️ as a portfolio project demonstrating professional web development practices, scalable architecture, and industry-standard documentation.**
 
-_Last Updated: Sprint 3B Phase 3 - About Page — COMPLETE_
+_Last Updated: Sprint 3B Phase 3 — About Page — COMPLETE | Phase B4 — Auth Middleware + /api/auth/me — COMPLETE_

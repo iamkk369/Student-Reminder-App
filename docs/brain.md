@@ -6,7 +6,7 @@
 
 - **Project**: Student Reminder App
 - **Purpose**: Help students organize assignments, exams, lectures, practicals, and reminders through a clean, responsive interface
-- **Current Phase: Authentication — Backend API with Node.js/Express + MySQL (Phases B1-B3 Complete)
+- **Current Phase: Authentication — Backend API with Node.js/Express + MySQL (Phases B1-B4 Complete)
 
 ## Technology Stack
 
@@ -76,7 +76,7 @@ Phase B — Authentication
 B1 — Sessions Table: COMPLETE (migration restored on disk in P1 — not yet committed)
 B2 — Registration: COMPLETE
 B3 — Login + Session Creation: COMPLETE
-B4 — Authentication Middleware + /api/auth/me: NEXT
+B4 — Authentication Middleware + /api/auth/me: COMPLETE
 
 ### Phase B1 — Sessions Table — Completed
 Files created: `db/migrations/002_sessions_table.sql`
@@ -183,6 +183,45 @@ Changes:
 - Sensitive fields never in response: ✅
 - Actual MySQL registration: ❌ NOT TESTED — no MySQL instance available on this machine
 
+### Phase B4 — Authentication Middleware + /api/auth/me — Completed
+Files created: `middleware/authenticate.js`
+Files modified: `routes/auth.js`, `docs/brain.md`, `README.md`
+Files NOT modified: `server.js`, `controllers/authController.js`, `middleware/originProtection.js`, `middleware/rateLimit.js`, `db/connection.js`, `package.json`, `db/migrations/`, `pages/`, `assets/`, `PLAN_*.md`
+
+Changes:
+- `middleware/authenticate.js`: reads `req.cookies.sid`, SHA-256 hashes it, queries `sessions` table (JOIN `users`) with parameterized SQL: `WHERE s.id = ? AND s.expires_at > NOW() LIMIT 1`
+- Selects ONLY: `s.user_id`, `u.name`, `u.email` — `password_hash` never selected
+- Sets `req.user = { id, name, email }` on success
+- `GET /api/auth/me` → 200 `{ user: { id, name, email } }` on valid session; 401 `{ error: 'Unauthorized' }` otherwise (missing/empty/invalid/expired/deleted-user session)
+- SQL-level expiry: `s.expires_at > NOW()` — expired sessions produce zero rows → 401
+- No Node.js Date comparison used for auth decision
+- Raw session ID NEVER logged (only `err.message` in catch block)
+- All failure paths return identical `401 { error: 'Unauthorized' }` — no information leakage
+- DB connection always released in `finally` block
+- DB error → safe `500 { error: 'Internal server error' }`
+- No new dependencies; no changes to server.js, controllers, or other middleware
+
+Testing status (Phase B4):
+- `node -c middleware/authenticate.js`: PASS
+- `node -c routes/auth.js`: PASS
+- `npm ls --depth=0`: PASS (no new deps)
+- Server startup: PASS
+- `GET /api/health` → 200: PASS (regression)
+- `GET /api/nonexistent` → 404: PASS (regression)
+- `GET /api/auth/me` without cookie → 401: PASS
+- `GET /api/auth/me` with empty cookie → 401: PASS
+- SHA-256 hashing present: PASS
+- Parameterized query (`?`): PASS
+- SQL expiry condition (`expires_at > NOW()`): PASS
+- `password_hash` not in SELECT: PASS
+- Raw session ID not logged: PASS
+- No sensitive data in responses: PASS
+- Malformed cookie → 401: BLOCKED (requires MySQL)
+- Valid session → 200: BLOCKED (requires MySQL)
+- Expired session → 401: BLOCKED (requires MySQL)
+- Deleted user → 401: BLOCKED (requires MySQL)
+- Live auth integration: BLOCKED (no MySQL server on this machine)
+
 ### P1 — Sessions Migration Restoration (Stability & Recovery Sprint) — Completed
 Problem: `db/migrations/002_sessions_table.sql` documented in Phase B1 but
 missing from disk and git history (verified: no such file in filesystem,
@@ -205,15 +244,13 @@ Result:
 
 ## Next Planned Work
 
-- **Phase B2**: Login + session creation
-- **Phase B3**: Authentication middleware + /api/auth/me
-- **Phase B4**: Logout flow
+- **Phase B5**: Logout flow
 - **Phase C**: Application shell / dashboard
 - **Phase D**: Reminder CRUD
 
 ## Known Issues
 
-- ❌ Live MySQL validation BLOCKED — no MySQL server available on this machine (affects live registration/database tests)
+- ❌ Live MySQL validation BLOCKED — no MySQL server available on this machine (affects live authentication tests)
 - Future pages (features, contact, privacy, terms, auth, app) referenced in nav/footer but not yet built — expected during progression
 Files created: `db/migrations/001_initial_schema.sql`
 Files modified: `docs/brain.md`
