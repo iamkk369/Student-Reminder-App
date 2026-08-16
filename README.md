@@ -116,13 +116,20 @@ Backend phases completed:
 - **Phase A1**: Express server foundation with `/api/health` endpoint
 - **Phase A2**: MySQL connection layer with failure-safe startup
 - **Phase A3**: Database foundation (`users` + `reminders` schema)
-- **Phase B1**: Sessions table for secure session management
+- **Phase B1**: Sessions table for secure session management ✅ (migration file restored on disk in P1 — see note below)
 - **Phase B2**: User registration with bcrypt hashing and session creation
 - **Phase B3**: Login endpoint with bcrypt authentication + session creation
 
 Frontend remains prototype (Home + About pages complete).
 
 Live MySQL integration testing is currently blocked — no MySQL server is available on this development machine. All authentication code is structurally validated and ready for database integration.
+
+> **P1 note (Stability & Recovery Sprint):** `db/migrations/002_sessions_table.sql`
+> was missing from disk and Git history in all branches despite being
+> documented as complete. It has been re-created and statically validated
+> (21/21 structure checks PASS) but has **not** been executed against a live
+> MySQL server (no MySQL instance available) and is **not yet committed**.
+> Live DB verification and Git history consistency are planned in P2/P3.
 
 ---
 

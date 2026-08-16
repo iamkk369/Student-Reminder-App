@@ -73,7 +73,7 @@ Phase A3 — Database Foundation (users + reminders tables) — COMPLETE
 
 ```text
 Phase B — Authentication
-B1 — Sessions Table: COMPLETE
+B1 — Sessions Table: COMPLETE (migration restored on disk in P1 — not yet committed)
 B2 — Registration: COMPLETE
 B3 — Login + Session Creation: COMPLETE
 B4 — Authentication Middleware + /api/auth/me: NEXT
@@ -91,6 +91,13 @@ Schema:
 Constraint strategy:
 - SHA-256 hash stored in DB (raw session ID never stored)
 - FK user_id links sessions to users
+
+IMPORTANT (P1 fix note): this migration was originally documented here as
+created, but the file was missing from disk AND from git history in all
+branches. `db/migrations/002_sessions_table.sql` was re-created and statically
+validated during P1 of the Stability & Recovery Sprint. It now exists on disk
+(untracked in git — pending P3 git consistency work). Live MySQL execution
+remains BLOCKED — no MySQL instance is available on this machine.
 
 ### Phase B2 — Registration — Completed
 Files created: `utils/hashPassword.js`, `middleware/rateLimit.js`, `middleware/originProtection.js`, `controllers/authController.js`, `routes/auth.js`
@@ -175,6 +182,26 @@ Changes:
 - Raw session ID never logged: ✅
 - Sensitive fields never in response: ✅
 - Actual MySQL registration: ❌ NOT TESTED — no MySQL instance available on this machine
+
+### P1 — Sessions Migration Restoration (Stability & Recovery Sprint) — Completed
+Problem: `db/migrations/002_sessions_table.sql` documented in Phase B1 but
+missing from disk and git history (verified: no such file in filesystem,
+`git log --all -- db/migrations/002_sessions_table.sql` empty, file absent
+from `git ls-tree -r HEAD`).
+
+Fix: re-created `db/migrations/002_sessions_table.sql` with the schema that
+matches the existing authentication code (authController.js INSERT INTO
+`sessions (id, user_id, expires_at)`; authenticate.js SELECT JOIN with
+`WHERE s.id = ? AND s.expires_at > NOW()`) and type-compatible FK
+(`users.id INT UNSIGNED` ↔ `sessions.user_id INT UNSIGNED`).
+
+Result:
+- Static validation: 21/21 checks PASS (columns, PK, indexes, FK + ON DELETE
+  CASCADE, ENGINE/CHARSET/COLLATE, no unnecessary columns)
+- Live MySQL execution: BLOCKED — no MySQL server/CLI available on this
+  machine (port 3306 closed, no `MySQL` service, `mysql` CLI not on PATH).
+  Migration is safely idempotent (`IF NOT EXISTS`) and deferred to P2.
+- No unrelated application files changed.
 
 ## Next Planned Work
 
