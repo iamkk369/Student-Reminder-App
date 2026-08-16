@@ -6,7 +6,7 @@
 
 - **Project**: Student Reminder App
 - **Purpose**: Help students organize assignments, exams, lectures, practicals, and reminders through a clean, responsive interface
-- **Current Phase**: Backend foundation — Node.js/Express (Phase A1), frontend prototype complete
+- **Current Phase: Authentication — Backend API with Node.js/Express + MySQL (Phases B1-B3 Complete)
 
 ## Technology Stack
 
@@ -73,7 +73,72 @@ Phase A3 — Database Foundation (users + reminders tables) — COMPLETE
 
 ```text
 Phase B — Authentication
-B1 — Registration API (POST /api/auth/register): IN PROGRESS
+B1 — Sessions Table: COMPLETE
+B2 — Registration: COMPLETE
+B3 — Login + Session Creation: COMPLETE
+B4 — Authentication Middleware + /api/auth/me: NEXT
+
+### Phase B1 — Sessions Table — Completed
+Files created: `db/migrations/002_sessions_table.sql`
+Files modified: `docs/brain.md`
+
+Schema:
+- `id` VARCHAR(64) PRIMARY KEY (stores SHA-256 hash)
+- `user_id` INT UNSIGNED NOT NULL FK -> users.id ON DELETE CASCADE
+- `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+- `expires_at` TIMESTAMP NOT NULL
+
+Constraint strategy:
+- SHA-256 hash stored in DB (raw session ID never stored)
+- FK user_id links sessions to users
+
+### Phase B2 — Registration — Completed
+Files created: `utils/hashPassword.js`, `middleware/rateLimit.js`, `middleware/originProtection.js`, `controllers/authController.js`, `routes/auth.js`
+Files modified: `server.js`, `package.json`, `package-lock.json`, `.env.example`, `docs/brain.md`
+Dependencies added: `bcrypt`, `express-rate-limit`, `cookie-parser`
+
+Changes:
+- `utils/hashPassword.js`: bcrypt hashing utility (saltRounds=12)
+- `middleware/rateLimit.js`: 5 req/15min per IP rate limiter for registration and login
+- `middleware/originProtection.js`: Origin + CSRF protection (SameSite=Strict cookie + ORIGIN check + x-api-request header)
+- `controllers/authController.js`: registration and login logic with bcrypt hash -> DB transaction -> user/session INSERT -> secure cookie set
+- `routes/auth.js`: mounts POST /register and POST /login with respective rate limiters
+- `server.js`: added cookieParser(), originProtection middleware, /api/auth route mount
+- `.env.example`: added ALLOWED_ORIGIN for CORS + Origin protection
+- Auth strategy: HttpOnly cookie with opaque random session ID stored as SHA-256 hash in sessions table
+
+### Phase B3 — Login + Session Creation — Completed
+Files modified: `controllers/authController.js`, `middleware/rateLimit.js`, `routes/auth.js`
+
+Changes:
+- `POST /api/auth/login`: login endpoint with bcrypt password comparison
+- Anti-user-enumeration: identical error response for unknown email and wrong password
+- `loginLimiter`: separate rate limiter (5 attempts / 15 minutes)
+- Reuses existing `originProtection` middleware
+- SHA-256 hashed session IDs stored in sessions table (raw IDs never stored)
+- HttpOnly + SameSite=Strict session cookie
+- 24-hour session expiration
+- DB transaction: user lookup + session INSERT in atomic block
+- Identical error for failed login to prevent user enumeration
+
+Testing Status (Phase B1-B3):
+- `npm install`: COMPLETE
+- `node server.js`: starts without crash
+- `GET /api/health` -> HTTP 200: PASS
+- `GET /api/nonexistent` -> 404: PASS (regression)
+- Registration validation: PASS (400 for missing fields, invalid email, weak password)
+- Origin protection: PASS (403 for bad origin, missing header)
+- Rate limiting: PASS (429 after 5 attempts)
+- bcrypt rounds = 12: PASS
+- Password hashed before transaction: PASS
+- Password not logged: PASS
+- password_hash not returned: PASS
+- Transaction rollback exists: PASS
+- Connection release in finally: PASS
+- Session hash stored as SHA-256: PASS
+- Raw session ID never logged: PASS
+- Sensitive fields never in response: PASS
+- Live MySQL login/session integration: BLOCKED (no MySQL server on this machine)
 
 ### Phase A3 — Database Foundation — Completed
 Files created: `db/migrations/001_initial_schema.sql`
@@ -191,4 +256,5 @@ Changes:
 
 ## Known Issues
 
-- None currently. Future pages (features, contact, privacy, terms, auth, app) are referenced in nav/footer but not yet built — expected during progression.
+- LIVE MySQL validation BLOCKED — no MySQL server available on this machine (affects live login/registration tests)
+- Future pages (features, contact, privacy, terms, auth, app) referenced in nav/footer but not yet built — expected during progression

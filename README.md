@@ -23,7 +23,7 @@ A production-ready, responsive web application designed to help college students
 - **Smart Reminders**: Customizable notification system for upcoming deadlines
 - **Progress Tracking**: Visual analytics and completion statistics
 - **Responsive Design**: Seamless experience across mobile, tablet, and desktop devices
-- **User Authentication**: Secure login and profile management (future)
+- **User Authentication**: Secure login and registration implemented (backend) ✅
 - **Cloud Sync**: Cross-device synchronization (future)
 
 ---
@@ -109,34 +109,37 @@ For a detailed explanation of each folder and file, see [PROJECT_STRUCTURE.md](P
 
 ### Current Status
 
-**Sprint 0 - Project Foundation** ✅
+**Backend Foundation + Authentication (Phases A1-A3, B1-B3) ✅**
 
-This sprint established the project foundation including:
+Backend phases completed:
 
-- Professional folder structure
-- Comprehensive documentation
-- Design system guidelines
-- Coding standards
-- Version control setup
+- **Phase A1**: Express server foundation with `/api/health` endpoint
+- **Phase A2**: MySQL connection layer with failure-safe startup
+- **Phase A3**: Database foundation (`users` + `reminders` schema)
+- **Phase B1**: Sessions table for secure session management
+- **Phase B2**: User registration with bcrypt hashing and session creation
+- **Phase B3**: Login endpoint with bcrypt authentication + session creation
 
-No application pages or functionality have been implemented yet. Future sprints will add features incrementally.
+Frontend remains prototype (Home + About pages complete).
+
+Live MySQL integration testing is currently blocked — no MySQL server is available on this development machine. All authentication code is structurally validated and ready for database integration.
 
 ---
 
 ## 🗺️ Roadmap
 
-| Sprint | Focus Area           | Deliverables                                          |
+| Phase | Focus Area         | Deliverables                                          |
 | ------ | -------------------- | ----------------------------------------------------- |
-| 1      | Authentication       | User login, registration, session management          |
-| 2      | Dashboard            | Overview widgets, quick stats, recent activity        |
-| 3      | Assignments          | Create, edit, delete assignments with priorities      |
-| 4      | Examinations         | Exam scheduler, countdown timers, preparation tracker |
-| 5      | Calendar             | Interactive calendar view, event management           |
-| 6      | Reminders            | Notification system, email alerts, push notifications |
-| 7      | Profile              | User settings, preferences, theme customization       |
-| 8      | Backend API          | RESTful API with Node.js and Express                  |
-| 9      | Database             | MySQL integration and data persistence                |
-| 10     | Testing & Deployment | Unit tests, E2E tests, production deployment          |
+| **A1** | Backend Foundation | Express server, `/api/health`, middleware            |
+| **A2** | MySQL Connection    | Connection pool, health check                         |
+| **A3** | Database Schema     | `users` + `reminders` tables                          |
+| **B1** | Sessions Table      | Secure session storage (SHA-256 hashed IDs)           |
+| **B2** | Registration        | User registration + bcrypt + session creation         |
+| **B3** | Login               | Authentication + session creation                     |
+| **B4** | Auth Middleware     | Token validation + `/api/auth/me`                     |
+| **B5** | Logout              | Session invalidation                                 |
+| **C**  | Dashboard           | Authenticated app shell                               |
+| **D**  | Reminder CRUD       | Create, edit, delete reminders                        |
 
 ---
 
