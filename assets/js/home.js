@@ -48,6 +48,7 @@ function closeMobileMenu() {
 
   if (mobileMenuBtn) {
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn.focus();
   }
 }
 
