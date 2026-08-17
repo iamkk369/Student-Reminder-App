@@ -21,6 +21,7 @@ const cookieParser = require('cookie-parser');
 const { testConnection } = require('./db/connection');
 const originProtection = require('./middleware/originProtection');
 const authRoutes = require('./routes/auth');
+const remindersRoutes = require('./routes/reminders');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,7 +43,8 @@ app.use(originProtection);    // Origin/CSRF protection for API routes
 // ========================================
 // Routes
 // ========================================
-app.use('/api/auth', authRoutes);    // Authentication routes
+app.use('/api/auth', authRoutes);          // Authentication routes
+app.use('/api/reminders', remindersRoutes); // Reminders CRUD routes
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({
