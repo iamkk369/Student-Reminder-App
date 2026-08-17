@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reminders — Student Reminder App</title>
+  <meta name="description" content="Manage your reminders.">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <a href="index.html" class="header-logo" aria-label="Student Reminder App - Home">
+          <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+          <span>Student Reminder</span>
+        </a>
+        <div class="header-actions d-flex items-center gap-3">
+          <span id="userInfo" class="text-secondary" hidden></span>
+          <button type="button" id="logoutBtn" class="btn btn-outline btn-sm" hidden>Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== DASHBOARD ==================== -->
+    <main class="container py-6">
+      <h1>My Reminders</h1>
+      <p id="welcome" class="text-secondary mb-4"></p>
+
+      <div id="pageError" class="form-error mb-4" role="alert" hidden></div>
+
+      <!-- CREATE -->
+      <section class="card mb-6">
+        <div class="card-body p-6">
+          <h2 class="mb-4">Add a Reminder</h2>
+          <form id="createForm" novalidate>
+            <div class="form-group">
+              <label class="form-label required" for="remTitle">Title</label>
+              <input class="form-control" type="text" id="remTitle" maxlength="200" required
+                     placeholder="e.g. Submit calculus assignment">
+            </div>
+            <div class="form-group">
+              <label class="form-label required" for="remDue">Due date and time</label>
+              <input class="form-control" type="datetime-local" id="remDue" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label optional" for="remDesc">Description</label>
+              <textarea class="form-control" id="remDesc" rows="2" placeholder="Optional details"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label optional" for="remPriority">Priority</label>
+              <select class="form-control" id="remPriority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Reminder</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- LIST -->
+      <section>
+        <h2 class="mb-4">Your Reminders</h2>
+        <div id="remindersList" class="d-grid gap-3"></div>
+        <p id="emptyState" class="text-secondary" hidden>No reminders yet. Add your first reminder above.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

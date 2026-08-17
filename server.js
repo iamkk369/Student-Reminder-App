@@ -13,6 +13,7 @@
 
 require('dotenv').config();
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -54,6 +55,16 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// ========================================
+// Static Frontend (Problem #4)
+// Serves the existing frontend pages/assets
+// from the same origin as the API so the
+// HttpOnly sid cookie flows naturally.
+// ========================================
+app.use(express.static(path.join(__dirname, 'pages')));
+app.use('/pages', express.static(path.join(__dirname, 'pages')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // ========================================
 // 404 handler

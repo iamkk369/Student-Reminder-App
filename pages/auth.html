@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Student Reminder App</title>
+  <meta name="description" content="Sign in or create an account to manage your reminders.">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+
+  <!-- Design System CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <a href="index.html" class="header-logo" aria-label="Student Reminder App - Home">
+          <img src="../assets/icons/logo.svg" alt="" aria-hidden="true" class="logo-img">
+          <span>Student Reminder</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-outline btn-sm">Back to Home</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== AUTH CARD ==================== -->
+    <main class="container py-6">
+      <div class="card mx-auto max-w-md">
+        <div class="card-body p-6">
+          <h1>Welcome</h1>
+          <p class="text-secondary mb-4">Sign in to manage your reminders, or create a free account.</p>
+
+          <div id="authError" class="form-error mb-4" role="alert" hidden></div>
+
+          <!-- LOGIN -->
+          <section id="loginSection">
+            <h2>Sign In</h2>
+            <form id="loginForm" novalidate>
+              <div class="form-group">
+                <label class="form-label required" for="loginEmail">Email</label>
+                <input class="form-control" type="email" id="loginEmail" name="email" required
+                       autocomplete="email" placeholder="you@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="loginPassword">Password</label>
+                <input class="form-control" type="password" id="loginPassword" name="password" required
+                       autocomplete="current-password">
+              </div>
+              <button type="submit" class="btn btn-primary w-full">Sign In</button>
+            </form>
+          </section>
+
+          <div class="text-center text-secondary my-4">— or —</div>
+
+          <!-- REGISTER -->
+          <section id="registerSection">
+            <h2>Create Account</h2>
+            <form id="registerForm" novalidate>
+              <div class="form-group">
+                <label class="form-label required" for="regName">Name</label>
+                <input class="form-control" type="text" id="regName" name="name" required
+                       autocomplete="name" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="regEmail">Email</label>
+                <input class="form-control" type="email" id="regEmail" name="email" required
+                       autocomplete="email" placeholder="you@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="regPassword">Password</label>
+                <input class="form-control" type="password" id="regPassword" name="password"
+                       minlength="8" maxlength="128" required autocomplete="new-password">
+                <p class="form-hint">At least 8 characters.</p>
+              </div>
+              <button type="submit" class="btn btn-success w-full">Create Account</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+</body>
+</html>
