@@ -199,3 +199,134 @@
   --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.1);
   --focus-ring-offset: 2px;
 }
+
+/* ========================================
+   Glassmorphism Foundation (Problem #4.1)
+   Subtle glassmorphism for selective surfaces.
+   Uses existing color tokens; does NOT replace any values.
+   ======================================== */
+
+/* Glass background opacity levels */
+:root {
+  --glass-bg-opacity: 0.8;
+  --glass-bg-opacity-sm: 0.9;
+  --glass-bg-opacity-md: 0.75;
+
+  /* Glass border opacity levels */
+  --glass-border-opacity: 0.3;
+  --glass-border-opacity-sm: 0.2;
+  --glass-border-opacity-md: 0.35;
+
+  /* Glass blur values */
+  --glass-blur-sm: 4px;
+  --glass-blur-md: 8px;
+  --glass-blur-lg: 12px;
+
+  /* Glass shadow for elevation */
+  --glass-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================
+   Reusable Glassmorphism Utilities
+   ======================================== */
+
+/* Base glassmorphism class - can be applied to any element */
+.glass {
+  background: var(--bg-primary);
+  backdrop-filter: var(--glass-blur-md);
+  -webkit-backdrop-filter: var(--glass-blur-md);
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-md));
+  border-radius: var(--radius-md);
+}
+
+/* Reduced glass for users who disable transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-primary);
+  }
+}
+
+/* Smart glass variants */
+.glass-sm {
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-sm));
+}
+
+.glass-md {
+  backdrop-filter: var(--glass-blur-md);
+  -webkit-backdrop-filter: var(--glass-blur-md);
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-md));
+}
+
+.glass-lg {
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-lg));
+}
+
+/* Glass with custom background override */
+.glass-with-bg {
+  background: var(--bg-secondary);
+}
+
+/* Glass hover state */
+.glass:hover {
+  --glass-bg-opacity: var(--glass-bg-opacity-md);
+  transition: backdrop-filter 150ms ease;
+}
+
+/* Glass text color - ensures readability */
+.glass .text-primary {
+  color: var(--text-primary);
+}
+
+.glass .text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Focus state over glass */
+.glass:focus-within {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ========================================
+   Gradient backgrounds using brand colors
+   ======================================== */
+
+/* Primary blue gradient background */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
+}
+
+/* Secondary purple gradient background */
+.bg-secondary-gradient {
+  background: linear-gradient(135deg, var(--color-secondary-50) 0%, var(--color-secondary-100) 100%);
+}
+
+/* ========================================
+   Status/Notification background helpers
+   ======================================== */
+
+/* Success background */
+.bg-success {
+  background: color-mix(in srgb, var(--color-success-100), var(--bg-primary));
+}
+
+/* Warning background */
+.bg-warning {
+  background: color-mix(in srgb, var(--color-warning-100), var(--bg-primary));
+}
+
+/* Error background */
+.bg-error {
+  background: color-mix(in srgb, var(--color-error-100), var(--bg-primary));
+}
+
+/* Info background */
+.bg-info {
+  background: color-mix(in srgb, var(--color-info-100), var(--bg-primary));
+}
