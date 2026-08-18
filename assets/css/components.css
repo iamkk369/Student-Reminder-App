@@ -254,7 +254,7 @@
 .form-control:focus {
   outline: none;
   border-color: var(--color-primary-500);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: var(--shadow-focus);
 }
 
 .form-control:disabled {
@@ -381,7 +381,7 @@ select.form-control {
 }
 
 .toggle-switch input:focus-visible + .toggle-slider {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: var(--shadow-focus);
 }
 
 /* Input Group */
